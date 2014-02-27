@@ -15,6 +15,17 @@
          return false;
      }
      
+    if( (inputVar[0] % 1 != 0) || inputVar[0] < 0 ||  (inputVar[1] % 1 != 0) || inputVar[1] < 0){
+       
+        $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, range need to be between 2 positive integers' + '<br/><br/>');   
+          return false;
+     }
+    if( inputVar[0] > inputVar[1]){
+        
+         $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, first number should be  smaller then the second number' + '<br/><br/>');   
+          return false;
+     }
+     
      
   /*End Validation*/
    
