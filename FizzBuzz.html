@@ -3,6 +3,14 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
  $('#fizzbuzz').submit(function(){
+  inputVar = $('#inputbox').val().split(":");
+  for(var x=inputVar[0];x <= inputVar[1]; x++){
+   if(x%3== 0){
+    $('#output').append('Fizz'  + '<br/>');
+   }else{
+    $('#output').append(x + '<br/>');
+   }
+  }
   
   return false;
  });
