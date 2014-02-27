@@ -7,7 +7,10 @@
   for(var x=inputVar[0];x <= inputVar[1]; x++){
    if(x%3== 0){
     $('#output').append('Fizz'  + '<br/>');
-   }else{
+   }else if(x%5== 0){
+    $('#output').append('Buzz'  + '<br/>');
+   }
+   else{
     $('#output').append(x + '<br/>');
    }
   }
