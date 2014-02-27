@@ -5,6 +5,19 @@
  $('#fizzbuzz').submit(function(){
    var inputVar = $('#inputbox').val().split(":");
    var str = '';
+   /*Validation*/
+   if(inputVar == ''){
+         $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, empty' + '<br/><br/>'); 
+         return false;
+     } 
+   if(inputVar[0] == undefined ||inputVar[0] == '' || inputVar[1] == undefined || inputVar[1] == '' || inputVar[2]){
+         $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, wrong format need to be range separeted by a colon(:). Eg. 1:15' + '<br/><br/>'); 
+         return false;
+     }
+     
+     
+  /*End Validation*/
+   
   for(var x=inputVar[0];x <= inputVar[1]; x++){
    if(x%3== 0){
       str += 'Fizz';   
