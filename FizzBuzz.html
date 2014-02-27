@@ -19,10 +19,11 @@ function formSubmit(){
         $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, range need to be between 2 positive integers' + '<br/><br/>');   
           return false;
      }
-    if( inputVar[0] > inputVar[1]){        
+    
+	if( inputVar[0] < inputVar[1] && inputVar[1] > inputVar[0] ){  
          $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, first number should be  smaller then the second number' + '<br/><br/>');   
           return false;
-     }     
+     }  
      
   /*End Validation*/   
 	  for(var x=inputVar[0];x <= inputVar[1]; x++){
