@@ -5,6 +5,8 @@
 function formSubmit(){
    var inputVar = $('#inputbox').val().split(":");
    var str = '';
+  var num1 = parseInt( inputVar[0]);
+  var num2 = parseInt(inputVar[1]);
    /*Validation*/
    if(inputVar == ''){
          $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, empty' + '<br/><br/>'); 
@@ -19,25 +21,35 @@ function formSubmit(){
         $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, range need to be between 2 positive integers' + '<br/><br/>');   
           return false;
      }
-    if( inputVar[0] > inputVar[1]){        
+	 
+	if( inputVar[0] < inputVar[1] && inputVar[1] > inputVar[0] ){  
          $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, first number should be  smaller then the second number' + '<br/><br/>');   
           return false;
-     }     
+     }
      
   /*End Validation*/   
-	  for(var x=inputVar[0];x <= inputVar[1]; x++){
+  var curr = 'start';
+    var prev = '';
+  for(var x=num1;x <= num2; x++){
+    var curStr = '';
 	   if(x%3== 0){
-		  str += 'Fizz';   
+		  curStr += 'Fizz';  	      
+		  curr = 'Fizz';  
 	   }
 	   if(x%5== 0){
-		  str += 'Buzz';
+		  curStr += 'Buzz';
+		  curr = 'Buzz';  
 	   }
 	   if(x%3 != 0 && x%5 != 0){
-		  str += x;
+		  curStr = x;
 	   }
-	   str += ' ';
+	   if( curr == prev  ){
+	    curStr = 'Bazz';
+	   }
+	   prev = curStr;  
+	   str += curStr + ' ';
 	  }
-	  $('#output').append(str + '<br/><br/>');
+	  $('#output').html(str + '<br/><br/>');
   return false;
 }
 </script>
