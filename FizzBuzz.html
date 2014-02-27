@@ -1,8 +1,8 @@
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
-$('#fizzbuzz').submit(function(){
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+function formSubmit(){
    var inputVar = $('#inputbox').val().split(":");
    var str = '';
    /*Validation*/
@@ -13,45 +13,43 @@ $('#fizzbuzz').submit(function(){
    if(inputVar[0] == undefined ||inputVar[0] == '' || inputVar[1] == undefined || inputVar[1] == '' || inputVar[2]){
          $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, wrong format need to be range separeted by a colon(:). Eg. 1:15' + '<br/><br/>'); 
          return false;
-     }
+	}
      
-    if( (inputVar[0] % 1 != 0) || inputVar[0] < 0 ||  (inputVar[1] % 1 != 0) || inputVar[1] < 0){
-       
+    if( (inputVar[0] % 1 != 0) || inputVar[0] < 0 ||  (inputVar[1] % 1 != 0) || inputVar[1] < 0){       
         $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, range need to be between 2 positive integers' + '<br/><br/>');   
           return false;
      }
-    if( inputVar[0] > inputVar[1]){
-        
+    if( inputVar[0] > inputVar[1]){        
          $('#output').append('Input: '+$('#inputbox').val()+'<br/>'+'Output : Error, first number should be  smaller then the second number' + '<br/><br/>');   
           return false;
-     }
+     }     
      
-     
-  /*End Validation*/
-   
-  for(var x=inputVar[0];x <= inputVar[1]; x++){
-   if(x%3== 0){
-      str += 'Fizz';   
-   }
-   if(x%5== 0){
-      str += 'Buzz';
-   }
-   if(x%3 != 0 && x%5 != 0){
-      str += x;
-   }
-   str += ' ';
-  }
-  $('#output').append(str + '<br/>');
+  /*End Validation*/   
+	  for(var x=inputVar[0];x <= inputVar[1]; x++){
+	   if(x%3== 0){
+		  str += 'Fizz';   
+	   }
+	   if(x%5== 0){
+		  str += 'Buzz';
+	   }
+	   if(x%3 != 0 && x%5 != 0){
+		  str += x;
+	   }
+	   str += ' ';
+	  }
+	  $('#output').append(str + '<br/><br/>');
   return false;
- });
-<script>
+}
+</script>
 </head>
+
 <body>
-<form id="fizzbuzz">
-<input type="text" name="inputbox" id="inputbox" value=""/>
-<input type="submit" name="submitbox" id="submitbox" value="Submit"/>
-</form>
-<div id="output">
-</div>
+	<form id="fizzbuzz" onsubmit="formSubmit(); return false;">
+	<input type="text" name="inputbox" id="inputbox" value=""/>
+	<input type="submit" name="submitbox" id="submitbox" value="Submit"/>
+	</form>
+	<div id="output">
+	</div>
 </body>
-</html>
+
+</html> 
